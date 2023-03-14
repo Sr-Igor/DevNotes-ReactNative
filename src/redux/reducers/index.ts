@@ -1,7 +1,7 @@
 import { combineReducers } from '@reduxjs/toolkit';
 
-import userReducer from './user';
+import notesReducer from './notes';
 
 export default combineReducers({
-  profile: userReducer
+  notes: notesReducer
 });
