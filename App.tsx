@@ -1,8 +1,10 @@
-import { NavigationContainer } from '@react-navigation/native';
+//React Navigation
 import DefaultStack from './src/navigators/Stack';
+import { NavigationContainer } from '@react-navigation/native';
 
-import { Provider as ProviderRedux } from 'react-redux';
+//Redux Configs
 import { store, persistor } from './src/redux/store';
+import { Provider as ProviderRedux } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 
 const App = () => {

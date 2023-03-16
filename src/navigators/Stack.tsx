@@ -1,13 +1,11 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-// import StackDefault from '../pages/StackDefault';
-// import TabDefault from '../navigators/Tab';
+
+//Types
+import { RootStackParamList } from '../types/Navigation';
+
+//Stack Pages
 import List from '../pages/List';
 import Note from '../pages/Note';
-
-type RootStackParamList = {
-  List: undefined;
-  Note: { id: number };
-};
 
 const MainStack = createNativeStackNavigator<RootStackParamList>();
 

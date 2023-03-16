@@ -15,3 +15,8 @@ export const editNote = ({ title, body, id }: Notes) => ({
   type: types.EDIT_NOTE,
   payload: { title, body, id }
 });
+
+export const deleteNote = (id: number) => ({
+  type: types.DELETE_NOTE,
+  payload: { id }
+});

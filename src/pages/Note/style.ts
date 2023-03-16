@@ -28,3 +28,16 @@ export const SaveButtonText = styled.Text`
   color: #fff;
   font-weight: bold;
 `;
+
+export const DeleteButton = styled.TouchableOpacity`
+  height: 40px;
+  background-color: #ff3333;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+`;
+
+export const DeleteButtonText = styled.Text`
+  font-size: 15px;
+  color: #fff;
+`;

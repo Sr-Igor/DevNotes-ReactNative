@@ -12,13 +12,16 @@ const persistedReducer = persistReducer(
     key: 'root',
     storage: AsyncStorage,
     whitelist: ['notes']
-    // blacklist: ['auth']
   },
   rootReducers
 );
 
 const store = configureStore({
-  reducer: persistedReducer
+  reducer: persistedReducer,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: false
+    })
 });
 
 const persistor = persistStore(store);

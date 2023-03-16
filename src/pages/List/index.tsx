@@ -1,16 +1,23 @@
+//Styles
 import * as S from './style';
 
+//React
 import { useLayoutEffect } from 'react';
-import { NoteItem } from '../../components/NodeItem';
-
 import { useNavigation } from '@react-navigation/native';
+
+//Redux
 import { useAppSelector } from '../../hooks/redux-hook';
 
+//Components
+import { NoteItem } from '../../components/NodeItem';
+
+//Types
 import { ListItem } from '../../types/List';
+import { NoteScreenNavigationProp } from '../../types/Navigation';
 
 const List = () => {
-  const navigation = useNavigation();
   const { list } = useAppSelector((state) => state.notes);
+  const navigation = useNavigation<NoteScreenNavigationProp>();
 
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -24,7 +31,7 @@ const List = () => {
   }, [navigation]);
 
   const handleNote = (id: number) => {
-    navigation.navigate('Note' as never, { id } as never);
+    navigation.navigate('Note', { id });
   };
 
   return (
