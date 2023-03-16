@@ -6,13 +6,20 @@ import Note from '../pages/Note';
 
 type RootStackParamList = {
   List: undefined;
-  Note: undefined;
+  Note: { id: number };
 };
 
 const MainStack = createNativeStackNavigator<RootStackParamList>();
 
 const DefaultStack = () => (
-  <MainStack.Navigator>
+  <MainStack.Navigator
+    screenOptions={{
+      headerStyle: {
+        backgroundColor: '#222'
+      },
+      headerTintColor: '#fff'
+    }}
+  >
     <MainStack.Screen name="List" component={List} />
     <MainStack.Screen name="Note" component={Note} />
   </MainStack.Navigator>

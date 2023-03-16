@@ -1,4 +1,5 @@
 import * as types from './types';
+import { ListItem } from '../../../types/List';
 
 const initialState = {
   list: [
@@ -11,24 +12,36 @@ const initialState = {
 };
 
 export type State = {
-  list: Array<{
-    title: string;
-    body: string;
-    id: number;
-  }>;
+  list: ListItem[];
 };
 
 type Action = {
   type: string;
-  payload: State;
+  payload: ListItem;
 };
 
 export default function notesReducer(state = initialState, action: Action) {
   switch (action.type) {
     case types.NOTES_ADD_NOTE:
       return {
-        state,
-        ...action.payload
+        list: [...state.list, { ...action.payload, id: state.list.length + 1 }]
+      };
+    case types.EDIT_NOTE:
+      // eslint-disable-next-line no-case-declarations
+      const newSate: ListItem[] = [];
+      state.list.map((note) => {
+        if (note.id === action.payload.id) {
+          newSate.push({
+            ...note,
+            title: action.payload.title,
+            body: action.payload.body
+          });
+        } else {
+          newSate.push(note);
+        }
+      });
+      return {
+        list: newSate
       };
     default:
       return state;
